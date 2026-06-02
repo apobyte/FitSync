@@ -228,6 +228,63 @@ namespace SetPoint.DAL.Migrations
                     b.ToTable("EXERCISE_SETS");
                 });
 
+            modelBuilder.Entity("SetPoint.DAL._1.Entity.FeedEvent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("ID")
+                        .HasColumnOrder(1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("CREATED_AT")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("CustomText")
+                        .HasColumnType("text")
+                        .HasColumnName("CUSTOM_TEXT")
+                        .HasColumnOrder(9);
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("DELETED_AT")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("EventType")
+                        .HasColumnType("integer")
+                        .HasColumnName("EVENT_TYPE")
+                        .HasColumnOrder(6);
+
+                    b.Property<Guid?>("ExerciseId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("EXERCISE_ID")
+                        .HasColumnOrder(7);
+
+                    b.Property<double?>("MetricValue")
+                        .HasColumnType("double precision")
+                        .HasColumnName("METRIC_VALUE")
+                        .HasColumnOrder(8);
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("UPDATED_AT")
+                        .HasColumnOrder(3);
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("USER_ID")
+                        .HasColumnOrder(5);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExerciseId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FEED_EVENTS");
+                });
+
             modelBuilder.Entity("SetPoint.DAL._1.Entity.Logs", b =>
                 {
                     b.Property<Guid>("Id")
@@ -723,6 +780,21 @@ namespace SetPoint.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("WorkoutExercise");
+                });
+
+            modelBuilder.Entity("SetPoint.DAL._1.Entity.FeedEvent", b =>
+                {
+                    b.HasOne("SetPoint.DAL._1.Entity.Exercise", "Exercise")
+                        .WithMany()
+                        .HasForeignKey("ExerciseId");
+
+                    b.HasOne("SetPoint.DAL._1.Entity.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Exercise");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SetPoint.DAL._1.Entity.Logs", b =>
