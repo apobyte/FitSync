@@ -592,6 +592,67 @@ namespace SetPoint.DAL.Migrations
                     b.ToTable("USERS");
                 });
 
+            modelBuilder.Entity("SetPoint.DAL._1.Entity.UsersInvitations", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("ID")
+                        .HasColumnOrder(1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("CREATED_AT")
+                        .HasColumnOrder(2);
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("DELETED_AT")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("EMAIL")
+                        .HasColumnOrder(5);
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("EXPIRES_AT")
+                        .HasColumnOrder(8);
+
+                    b.Property<bool>("Sended")
+                        .HasColumnType("boolean")
+                        .HasColumnName("SENDED")
+                        .HasColumnOrder(10);
+
+                    b.Property<Guid?>("SenderUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("SENDER_USER_ID")
+                        .HasColumnOrder(7);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer")
+                        .HasColumnName("STATUS")
+                        .HasColumnOrder(9);
+
+                    b.Property<Guid>("Token")
+                        .HasColumnType("uuid")
+                        .HasColumnName("TOKEN")
+                        .HasColumnOrder(6);
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("UPDATED_AT")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SenderUserId");
+
+                    b.ToTable("USER_INVITATIONS");
+                });
+
             modelBuilder.Entity("SetPoint.DAL._1.Entity.UsersRelations", b =>
                 {
                     b.Property<Guid>("Id")
@@ -861,6 +922,15 @@ namespace SetPoint.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SetPoint.DAL._1.Entity.UsersInvitations", b =>
+                {
+                    b.HasOne("SetPoint.DAL._1.Entity.Users", "SenderUser")
+                        .WithMany()
+                        .HasForeignKey("SenderUserId");
+
+                    b.Navigation("SenderUser");
                 });
 
             modelBuilder.Entity("SetPoint.DAL._1.Entity.UsersRelations", b =>
