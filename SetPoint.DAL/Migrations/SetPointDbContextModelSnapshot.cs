@@ -602,6 +602,11 @@ namespace SetPoint.DAL.Migrations
                         .HasColumnName("SEX")
                         .HasColumnOrder(9);
 
+                    b.Property<DateTime?>("TermsAcceptedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("TERMS_ACCEPTED_AT")
+                        .HasColumnOrder(12);
+
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("UPDATED_AT")
