@@ -77,7 +77,9 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdUser");
+                    b.HasIndex("UpdatedAt");
+
+                    b.HasIndex("IdUser", "UpdatedAt");
 
                     b.ToTable("BODY_MEASUREMENTS");
                 });
@@ -128,6 +130,8 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UpdatedAt");
+
                     b.ToTable("EXERCISE");
                 });
 
@@ -169,6 +173,8 @@ namespace SetPoint.DAL.Migrations
                     b.HasIndex("ExerciseId");
 
                     b.HasIndex("MuscleId");
+
+                    b.HasIndex("UpdatedAt");
 
                     b.ToTable("EXERCISE_MUSCLE_GROUP");
                 });
@@ -222,6 +228,8 @@ namespace SetPoint.DAL.Migrations
                         .HasColumnOrder(6);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UpdatedAt");
 
                     b.HasIndex("WorkoutExerciseId");
 
@@ -280,6 +288,8 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasIndex("ExerciseId");
 
+                    b.HasIndex("UpdatedAt");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("FEED_EVENTS");
@@ -319,6 +329,8 @@ namespace SetPoint.DAL.Migrations
                         .HasColumnOrder(6);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UpdatedAt");
 
                     b.HasIndex("UserId");
 
@@ -360,6 +372,8 @@ namespace SetPoint.DAL.Migrations
                         .HasColumnOrder(3);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UpdatedAt");
 
                     b.ToTable("MUSCLE_GROUP");
                 });
@@ -428,6 +442,8 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasIndex("RoutineId");
 
+                    b.HasIndex("UpdatedAt");
+
                     b.ToTable("ROUTINE_Exercises");
                 });
 
@@ -476,11 +492,13 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ReceiverId");
-
                     b.HasIndex("RoutineId");
 
-                    b.HasIndex("SenderId");
+                    b.HasIndex("UpdatedAt");
+
+                    b.HasIndex("ReceiverId", "UpdatedAt");
+
+                    b.HasIndex("SenderId", "UpdatedAt");
 
                     b.ToTable("ROUTINE_REQUESTS");
                 });
@@ -526,7 +544,9 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UpdatedAt");
+
+                    b.HasIndex("UserId", "UpdatedAt");
 
                     b.ToTable("ROUTINES");
                 });
@@ -589,6 +609,8 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UpdatedAt");
+
                     b.ToTable("USERS");
                 });
 
@@ -650,6 +672,8 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasIndex("SenderUserId");
 
+                    b.HasIndex("UpdatedAt");
+
                     b.ToTable("USER_INVITATIONS");
                 });
 
@@ -693,9 +717,11 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FriendId");
+                    b.HasIndex("UpdatedAt");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("FriendId", "UpdatedAt");
+
+                    b.HasIndex("UserId", "UpdatedAt");
 
                     b.ToTable("USERS_RELATIONS");
                 });
@@ -749,6 +775,8 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasIndex("SessionId");
 
+                    b.HasIndex("UpdatedAt");
+
                     b.ToTable("WORKOUT_EXERCISES");
                 });
 
@@ -797,7 +825,9 @@ namespace SetPoint.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UpdatedAt");
+
+                    b.HasIndex("UserId", "UpdatedAt");
 
                     b.ToTable("WORKOUT_SESSIONS");
                 });
