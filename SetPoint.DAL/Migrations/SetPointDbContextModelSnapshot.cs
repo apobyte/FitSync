@@ -360,6 +360,16 @@ namespace SetPoint.DAL.Migrations
                         .HasColumnName("DESCRIPTION")
                         .HasColumnOrder(7);
 
+                    b.Property<int?>("MaxSets")
+                        .HasColumnType("integer")
+                        .HasColumnName("MAX_SETS")
+                        .HasColumnOrder(9);
+
+                    b.Property<int?>("MinSets")
+                        .HasColumnType("integer")
+                        .HasColumnName("MIN_SETS")
+                        .HasColumnOrder(8);
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
