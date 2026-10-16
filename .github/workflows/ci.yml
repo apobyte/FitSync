@@ -20,7 +20,7 @@ jobs:
           10.0.x
 
     - name: Restore dependencies
-      run: dotnet restore HabityFit.slnx
+      run: dotnet restore FitSync.slnx
 
     - name: Build
       run: dotnet build --configuration Release --no-restore

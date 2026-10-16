@@ -1,0 +1,7 @@
+﻿<Solution>
+  <Project Path="FitSync.BLL.Tests/FitSync.BLL.Tests.csproj" />
+  <Project Path="FitSync.BLL/FitSync.BLL.csproj" />
+  <Project Path="FitSync.DAL/FitSync.DAL.csproj" />
+  <Project Path="FitSync.API.Tests/FitSync.API.Tests.csproj" />
+  <Project Path="FitSync.API/FitSync.API.csproj" />
+</Solution>
